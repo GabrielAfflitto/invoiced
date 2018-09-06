@@ -17,7 +17,7 @@ module Invoiced
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', headers: :any, methods: [:patch, :put, :delete, :get, :post, :options]
+        resource '*', headers: :any, methods: [:patch, :put, :create, :delete, :get, :post, :options]
       end
     end
   end

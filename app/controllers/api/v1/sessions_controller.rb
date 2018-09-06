@@ -1,7 +1,16 @@
-class Api::V1:SessionsController < ApplicationController
-  
-  def create
+class Api::V1::SessionsController < ApplicationController
 
+  skip_before_action :verify_authenticity_token
+
+  def create
+    user = User.where(email: params[:email]).first
+
+    # user&. is short for user && user.valid_password?(params[:password])
+    if user&.valid_password?(params[:password])
+      render json: user.as_json(only: [:email, :authentication_token]), status: :created
+    else
+      head(:unauthorized)
+    end
   end
 
   def destroy
