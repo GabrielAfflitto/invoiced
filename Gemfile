@@ -33,7 +33,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0'
-
+gem 'pry'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
